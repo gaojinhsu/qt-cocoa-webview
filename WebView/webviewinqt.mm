@@ -10,7 +10,7 @@ WebViewInQt::WebViewInQt(QWidget *parent) :
 {
     @autoreleasepool{
 
-    NSRect rect = {{0, 0}, {parent->width(), parent->height()}};
+    NSRect rect = {{0, 0}, {(CGFloat)parent->width(), (CGFloat)parent->height()}};
 
     CustomWebView *cWebView = [[CustomWebView alloc]initWithObjects:rect frameName:nil groupName:nil target:this];
     setCocoaView(cWebView);
@@ -27,7 +27,7 @@ WebViewInQt::WebViewInQt(QString loadUrl, QWidget *parent) :
 
     NSString *strUrl = loadUrl.toNSString();
 
-    NSRect rect = {{0, 0}, {parent->width(), parent->height()}};
+    NSRect rect = {{0, 0}, {(CGFloat)parent->width(), (CGFloat)parent->height()}};
 
     CustomWebView *cWebView = [[CustomWebView alloc]initWithObjects:rect frameName:nil groupName:nil target:this];
 
@@ -41,12 +41,11 @@ WebViewInQt::WebViewInQt(QString loadUrl, QWidget *parent) :
 
 }
 
-
 void WebViewInQt::loadRequest(const QString& loadUrl)
 {
    @autoreleasepool{
 
-    CustomWebView *cWebView = this->cocoaView();
+    CustomWebView *cWebView = (CustomWebView*)this->cocoaView();
     NSString *strUrl = loadUrl.toNSString();
 
     [[cWebView mainFrame] loadRequest:

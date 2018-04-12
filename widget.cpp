@@ -7,7 +7,7 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    webview = new WebViewInQt("http://google.com", this);
+    webview = new WebViewInQt("https://baidu.com", this);
     webview->move(0, 0);
 
     connect(webview, SIGNAL(signalLoadFinish(const QString&, const QString&)), this,
@@ -25,7 +25,6 @@ void Widget::resizeEvent(QResizeEvent *event)
     webview->resize(this->width(), this->height());
     return QWidget::resizeEvent(event);
 }
-
 
 void Widget::slotLoadFinished(const QString &url, const QString &html)
 {

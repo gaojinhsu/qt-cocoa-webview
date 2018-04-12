@@ -1,5 +1,8 @@
 #import "customwebview.h"
 
+@interface CustomWebView()<WebFrameLoadDelegate, WebResourceLoadDelegate>
+@end
+
 @implementation CustomWebView
 
 -(id) initWithObjects:(NSRect)frameRect frameName:(NSString *)frameName groupName:(NSString *)groupName target:(QPointer<WebViewInQt>) target;
