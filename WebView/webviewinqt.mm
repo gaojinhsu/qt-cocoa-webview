@@ -33,6 +33,8 @@ WebViewInQt::WebViewInQt(QString loadUrl, QWidget *parent) :
 
     [[cWebView mainFrame] loadRequest: [NSURLRequest requestWithURL:[NSURL URLWithString:strUrl]
                                         cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15]];
+
+
     setCocoaView(cWebView);
 
     [cWebView release];

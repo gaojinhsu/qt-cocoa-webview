@@ -9,6 +9,7 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
     webview = new WebViewInQt("https://baidu.com", this);
     webview->move(0, 0);
+    webview->
 
     connect(webview, SIGNAL(signalLoadFinish(const QString&, const QString&)), this,
             SLOT(slotLoadFinished(const QString&, const QString&)));
